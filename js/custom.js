@@ -547,11 +547,17 @@ function initializeCustomJs() {
     })(jQuery);
 }
 
-// Custom handler to be executed on page view events
+function closeMobileMenu() {
+    $(".menu-sidebar-area").removeClass("active");
+    $(".body-overlay").removeClass("active");
+}
+
+// Handler for Swup page view events
 const handler = () => {
+    closeMobileMenu();  // Close menu on page view
     console.log('New page loaded');
-    initializeCustomJs();  // Reinitialize JS components after Swup loads new content
-    setActiveLink();  // Update the active class on navigation links
+    initializeCustomJs();  // Reinitialize JS components
+    setActiveLink();  // Update the active link
 };
 
 // Register the handler for Swup page views
