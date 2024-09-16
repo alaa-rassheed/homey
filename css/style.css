@@ -2106,13 +2106,13 @@ body.admin-bar .header-menu-area.sticky_menu {
     transition: all .5s ease-out
 }
 
-.header-menu-area.sticky_menu .main-menu ul li.active>a,
-.header-menu-area.sticky_menu .main-menu ul li.current-menu-ancestor>a {
+.header-menu-area.sticky_menu .main-menu ul li>a.active,
+.header-menu-area.sticky_menu .main-menu ul li>a.current-menu-ancestor {
     color: var(--text-secondary)
 }
 
-.header-menu-area.sticky_menu .main-menu ul li.active>a:after,
-.header-menu-area.sticky_menu .main-menu ul li.current-menu-ancestor>a:after {
+.header-menu-area.sticky_menu .main-menu ul li>a.active:after,
+.header-menu-area.sticky_menu .main-menu ul li>a.current-menu-ancestor:after {
     display: none
 }
 
@@ -2198,13 +2198,13 @@ body.admin-bar .header-menu-area.sticky_menu {
     position: relative
 }
 
-.main-menu ul li.active,
-.main-menu ul li.current-menu-ancestor {
+.main-menu ul li a.active,
+.main-menu ul li a.current-menu-ancestor {
     position: relative
 }
 
-.main-menu ul li.active>a,
-.main-menu ul li.current-menu-ancestor>a {
+.main-menu ul li>a.active,
+.main-menu ul li>a.current-menu-ancestor {
     color: var(--text-secondary)
 }
 
@@ -14667,6 +14667,15 @@ ul.children {
         padding-block-start: 40px;
         padding-block-end: 32px
     }
+}
+
+html.is-changing .transition-fade {
+    transition: opacity 0.25s;
+    opacity: 1;
+}
+
+html.is-animating .transition-fade {
+    opacity: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
