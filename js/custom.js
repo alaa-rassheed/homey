@@ -552,22 +552,19 @@ function closeMobileMenu() {
     $(".body-overlay").removeClass("active");
 }
 function handleMenu() {
-    // Execute before other handlers
-swup.hooks.on('visit:start', () => {
-    closeMobileMenu(); 
-}, { priority: -100 });
-
-
+    // Ensure closeMobileMenu executes before other handlers
+    swup.hooks.on('visit:start', () => {
+        closeMobileMenu(); 
+    }, { priority: -100 });
 }
-    
+
 // Handler for Swup page view events
 const handler = () => {
-    handleMenu()
+    handleMenu();  // Ensure menu closes before handling page view
     console.log('New page loaded');
     initializeCustomJs();  // Reinitialize JS components
     setActiveLink();  // Update the active link
 };
-
 // Register the handler for Swup page views
 swup.hooks.on('page:view', handler);
 
