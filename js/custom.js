@@ -551,10 +551,18 @@ function closeMobileMenu() {
     $(".menu-sidebar-area").removeClass("active");
     $(".body-overlay").removeClass("active");
 }
+function handleMenu() {
+    // Execute before other handlers
+swup.hooks.on('visit:start', () => {
+    closeMobileMenu(); 
+}, { priority: -100 });
 
+
+}
+    
 // Handler for Swup page view events
 const handler = () => {
-    closeMobileMenu();  // Close menu on page view
+    handleMenu()
     console.log('New page loaded');
     initializeCustomJs();  // Reinitialize JS components
     setActiveLink();  // Update the active link
