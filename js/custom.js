@@ -552,41 +552,33 @@ function closeMobileMenu() {
     $(".body-overlay").removeClass("active");
 }
 function handleMenu() {
-    // Ensure closeMobileMenu executes before other handlers
     swup.hooks.on('visit:start', () => {
         closeMobileMenu();
     }, { priority: -100 });
 }
 
-// Handler for Swup page view events
 function closeMobileMenu() {
     $(".menu-sidebar-area").removeClass("active");
     $(".body-overlay").removeClass("active");
 }
 function handleMenu() {
-    // Ensure closeMobileMenu executes before other handlers
     swup.hooks.on('visit:start', () => {
         closeMobileMenu();
     }, { priority: -100 });
 }
 
-// Handler for Swup page view events
 const handler = () => {
-    handleMenu();  // Ensure menu closes before handling page view
+    handleMenu();
     console.log('New page loaded');
-    initializeCustomJs();  // Reinitialize JS components
-    setActiveLink();  // Update the active link
-    initializeCustomJs();  // Reinitialize JS components
-    setActiveLink();  // Update the active link
+    initializeCustomJs();
+    setActiveLink();
+    initializeCustomJs();
+    setActiveLink();
 };
-// Register the handler for Swup page views
 swup.hooks.on('page:view', handler);
 
-// You can remove the handler later if needed
-// swup.hooks.off('page:view', handler);
 
-// Initially call the function on the first page load
 document.addEventListener('DOMContentLoaded', () => {
-    initializeCustomJs();  // Initialize JS on first load
-    setActiveLink();  // Set the active link on first load
+    initializeCustomJs();
+    setActiveLink();
 });
