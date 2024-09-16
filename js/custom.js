@@ -551,27 +551,10 @@ function closeMobileMenu() {
     $(".menu-sidebar-area").removeClass("active");
     $(".body-overlay").removeClass("active");
 }
-function handleMenu() {
-    swup.hooks.on('visit:start', () => {
-        closeMobileMenu();
-    }, { priority: -100 });
-}
-
-function closeMobileMenu() {
-    $(".menu-sidebar-area").removeClass("active");
-    $(".body-overlay").removeClass("active");
-}
-function handleMenu() {
-    swup.hooks.on('visit:start', () => {
-        closeMobileMenu();
-    }, { priority: -100 });
-}
 
 const handler = () => {
-    handleMenu();
+    closeMobileMenu();
     console.log('New page loaded');
-    initializeCustomJs();
-    setActiveLink();
     initializeCustomJs();
     setActiveLink();
 };
