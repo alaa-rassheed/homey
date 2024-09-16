@@ -559,9 +559,24 @@ function handleMenu() {
 }
 
 // Handler for Swup page view events
+function closeMobileMenu() {
+    $(".menu-sidebar-area").removeClass("active");
+    $(".body-overlay").removeClass("active");
+}
+function handleMenu() {
+    // Ensure closeMobileMenu executes before other handlers
+    swup.hooks.on('visit:start', () => {
+        closeMobileMenu();
+    }, { priority: -100 });
+}
+
+// Handler for Swup page view events
 const handler = () => {
     handleMenu();  // Ensure menu closes before handling page view
+    handleMenu();  // Ensure menu closes before handling page view
     console.log('New page loaded');
+    initializeCustomJs();  // Reinitialize JS components
+    setActiveLink();  // Update the active link
     initializeCustomJs();  // Reinitialize JS components
     setActiveLink();  // Update the active link
 };
