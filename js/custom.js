@@ -573,7 +573,6 @@ function handleMenu() {
 // Handler for Swup page view events
 const handler = () => {
     handleMenu();  // Ensure menu closes before handling page view
-    handleMenu();  // Ensure menu closes before handling page view
     console.log('New page loaded');
     initializeCustomJs();  // Reinitialize JS components
     setActiveLink();  // Update the active link
